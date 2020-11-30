@@ -18,16 +18,22 @@ class AdminPostsController extends Controller
     {
         return view('admin.posts.create');
     }
-    public function store(Request $request)
+    public function store(\Illuminate\Http\Request $request)
     {
-        Post::create($request->all);
+        Post::create($request->all());
         return redirect()->route('admin.posts.index');
     }
 
     public function edit($id)
     {
-        $data = ['id' => $id];
-
+        $posts=POST::find($id);
+        $data = ['post'=>$posts];
         return view('admin.posts.edit', $data);
+    }
+    public function update(\Illuminate\Http\Request $request,$id)
+    {
+        $posts=POST::find($id);
+        $posts->update($request->all());
+        return redirect()->route('admin.posts.index');
     }
 }
