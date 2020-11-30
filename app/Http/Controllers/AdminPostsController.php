@@ -19,7 +19,7 @@ class AdminPostsController extends Controller
     }
     public function store()
     {
-       
+
     }
 
     public function edit($id)
