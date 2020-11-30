@@ -30,7 +30,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <form action="/admin/posts" method="POST" role="form">
+        <form action="{{route('admin.posts.update')}}" method="POST" role="form">
             @method('POST')
             @csrf
             <div class="form-group">
